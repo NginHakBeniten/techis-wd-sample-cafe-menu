@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'techis-wd-sample-cafe-api.herokuapp.com']
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://techis-wd-sample-cafe.herokuapp.com/']
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://techis-wd-sample-cafe.herokuapp.com']
 
 # Application definition
 
