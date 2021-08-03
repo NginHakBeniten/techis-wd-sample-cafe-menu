@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Common/Header";
 import Footer from "../components/Common/Footer";
 import PopupWriteRevew from "../components/Popup/WriteReview";
+import PopupRevews from "../components/Popup/Reviews";
 import { fetchPosts } from "../reducks/posts/operations";
 import { getPosts } from "../reducks/posts/selectors";
 import ImgMainImage from "../assets/img/main-image.png";
@@ -11,6 +12,7 @@ import ImgIconHeart from "../assets/img/icon-heart.svg";
 
 const Home = () => {
   const [showWriteReview, setShowWriteReview] = useState(false);
+  const [showReviews, setShowReviews] = useState(true);
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const posts = getPosts(selector);
@@ -112,6 +114,7 @@ const Home = () => {
       <Footer price={175} isCartPage={false} />
 
       {showWriteReview && <PopupWriteRevew />}
+      {showReviews && <PopupRevews />}
     </div>
   );
 };
