@@ -11,7 +11,7 @@ import ImgMainImage from "../assets/img/main-image.png";
 
 const Home = () => {
   const [showWriteReview, setShowWriteReview] = useState(false);
-  const [showReviews, setShowReviews] = useState(true);
+  const [showReviews, setShowReviews] = useState(false);
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const posts = getPosts(selector);
