@@ -7,6 +7,7 @@ import PopupRevews from "../components/Popup/Reviews";
 import Item from "../components/Common/Item";
 import { fetchItems } from "../reducks/items/operations";
 import { getItems } from "../reducks/items/selectors";
+import { getCarts } from "../reducks/carts/selectors";
 import ImgMainImage from "../assets/img/main-image.png";
 import queryString from "query-string";
 
@@ -17,6 +18,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const items = getItems(selector);
+  const carts = getCarts(selector);
 
   useEffect(() => {
     dispatch(fetchItems(parsed.category));
@@ -24,6 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     console.log(items);
+    console.log(carts);
     console.log(parsed);
   }, [items]);
 
@@ -59,11 +62,17 @@ const Home = () => {
 
         <ul class="items">
           {items &&
-            items.map((item) => (
-              <li>
-                <Item key={item.id} item={item} selected_count={0} />
-              </li>
-            ))}
+            items.map((item) =>
+              carts && carts[item.id] ? (
+                <li>
+                  <Item key={item.id} item={item} selected_count={carts[item.id].selected_count} />
+                </li>
+              ) : (
+                <li>
+                  <Item key={item.id} item={item} selected_count={0} />
+                </li>
+              )
+            )}
         </ul>
       </section>
 

@@ -1,19 +1,19 @@
 import * as Actions from './actions'
 import  initialState from '../store/initialState'
 
-export const PostsReducer = (state = initialState.posts, action) => {
+export const CartsReducer = (state = initialState.carts, action) => {
     switch(action.type) {
-        case Actions.ADD_POST:
+        case Actions.ADD_CART:
             return {
                 ...state,
                 list: action.payload
             }
-        case Actions.FETCH_POST:
+        case Actions.INCREASE_CART:
             return {
                 ...state,
                 list: action.payload
             }
-        case Actions.DELETE_POST:
+        case Actions.DECREASE_CART:
             return {
                 ...state,
                 list: action.payload

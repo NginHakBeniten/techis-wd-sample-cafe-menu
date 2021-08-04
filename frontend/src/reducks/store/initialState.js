@@ -4,6 +4,9 @@ const initialState = {
     },
     items: {
         list: []
+    },
+    carts: {
+        list: []
     }
 };
 

@@ -5,13 +5,6 @@ export const addCartAction = (carts) => {
         payload: carts
     }
 }
-export const FETCH_CART = "FETCH_CART";
-export const fetchCartsAction = (carts) => {
-    return {
-        type: "FETCH_CART",
-        payload: carts
-    }
-}
 export const INCREASE_CART = "INCREASE_CART";
 export const increaseCartAction = (carts) => {
     return {
@@ -20,7 +13,7 @@ export const increaseCartAction = (carts) => {
     }
 }
 export const DECREASE_CART = "DECREASE_CART";
-export const increaseCartAction = (carts) => {
+export const decreaseCartAction = (carts) => {
     return {
         type: "DECREASE_CART",
         payload: carts

@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 import {PostsReducer} from '../posts/reducers';
 import {ItemsReducer} from '../items/reducers';
+import {CartsReducer} from '../carts/reducers';
 
 export default function createStore(history) {
     return reduxCreateStore(
@@ -16,6 +17,7 @@ export default function createStore(history) {
             router: connectRouter(history),
             posts: PostsReducer,
             items: ItemsReducer,
+            carts: CartsReducer,
        }),
        compose(
         applyMiddleware(

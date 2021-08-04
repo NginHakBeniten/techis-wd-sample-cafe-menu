@@ -1,8 +1,21 @@
 import React from "react";
-import ImgSampleImage from "../../assets/img/sample-image.png";
+import { useDispatch } from "react-redux";
 import ImgIconHeart from "../../assets/img/icon-heart.svg";
+import { addCart, increaseCart, decreaseCart } from "../../reducks/carts/operations";
 
 const Item = ({ item, selected_count }) => {
+  console.log("selcted");
+  console.log(selected_count);
+  const dispatch = useDispatch();
+  const clickAddCart = () => {
+    dispatch(addCart(item));
+  };
+  const clickPlusCart = () => {
+    dispatch(increaseCart(item));
+  };
+  const clickMinusCart = () => {
+    dispatch(decreaseCart(item));
+  };
   return (
     <>
       <img src={item.image} class="item-image" alt="" />
@@ -17,12 +30,18 @@ const Item = ({ item, selected_count }) => {
         <div class="info-bottom">
           <div class="price">${item.price}</div>
           {selected_count == 0 ? (
-            <div class="add">Add +</div>
+            <div class="add" onClick={clickAddCart}>
+              Add +
+            </div>
           ) : (
             <div class="number">
-              <span class="minus">－</span>
+              <span class="minus" onClick={clickMinusCart}>
+                －
+              </span>
               <span class="count">{selected_count}</span>
-              <span class="plus">+</span>
+              <span class="plus" onClick={clickPlusCart}>
+                +
+              </span>
             </div>
           )}
         </div>
