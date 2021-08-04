@@ -21,7 +21,7 @@ const Item = ({ item, selected_count }) => {
         <div class="name">{item.name}</div>
         <div class="name-bottom">
           <img src={ImgIconHeart} class="icon-heart" alt="" />
-          <div class="count">(16)</div>
+          <div class="count">({item.total_like_count})</div>
           <button class="link-button">Check Reviews</button>
           <button class="link-button">Write Reviews</button>
         </div>
