@@ -305,6 +305,7 @@ footer button.link-button {
 .popup ul.reactions {
   display: flex;
   padding: 0;
+  cursor: pointer;
 }
 
 .popup ul.reactions li {
@@ -315,6 +316,11 @@ footer button.link-button {
 
 .popup ul.reactions li img {
   width: 100%;
+  opacity: 0.5;
+}
+
+.popup ul.reactions li img.selected {
+  opacity: 1;
 }
 
 .popup input {

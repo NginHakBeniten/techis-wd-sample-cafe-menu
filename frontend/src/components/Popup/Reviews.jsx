@@ -2,13 +2,13 @@ import React from "react";
 import ImgReaction1 from "../../assets/img/reaction-1.svg";
 import ImgIconCross from "../../assets/img/icon-cross.svg";
 
-const Reviews = () => {
+const Reviews = ({ setShowReviews }) => {
   return (
     <section class="popup">
       <div class="innter">
         <div class="popup-content">
           <div class="innter">
-            <img src={ImgIconCross} class="cross" alt="" />
+            <img src={ImgIconCross} onClick={() => setShowReviews(false)} class="cross" alt="" />
             <h2>Reviews for “Chicken Makhani Burst + Lite”</h2>
             <ul class="reviews">
               <li>

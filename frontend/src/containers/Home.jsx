@@ -29,23 +29,21 @@ const Home = () => {
   }, []);
 
   const showItem = (item) => {
+    let selected_count = 0;
+    if (carts[item.id] && carts[item.id].selected_count) {
+      selected_count = carts[item.id].selected_count;
+    }
+
     if (showCartList && carts[item.id] == undefined) {
       // if the page is cart page and item is not slected, show nothing.
       return;
     }
-    if (carts && carts[item.id]) {
-      return (
-        <li>
-          <Item key={item.id} item={item} selected_count={carts[item.id].selected_count} />
-        </li>
-      );
-    } else {
-      return (
-        <li>
-          <Item key={item.id} item={item} selected_count={0} />
-        </li>
-      );
-    }
+
+    return (
+      <li>
+        <Item key={item.id} item={item} selected_count={selected_count} setShowWriteReview={setShowWriteReview} setShowReviews={setShowReviews} />
+      </li>
+    );
   };
 
   return (
@@ -90,8 +88,8 @@ const Home = () => {
 
       <Footer price={subtotal} showCartList={showCartList} setShowCartList={setShowCartList} />
 
-      {showWriteReview && <PopupWriteRevew />}
-      {showReviews && <PopupRevews />}
+      {showWriteReview && <PopupWriteRevew setShowWriteReview={setShowWriteReview} />}
+      {showReviews && <PopupRevews setShowReviews={setShowReviews} />}
     </div>
   );
 };
