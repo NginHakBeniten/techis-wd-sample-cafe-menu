@@ -2,7 +2,7 @@ import React from "react";
 import ImgSampleImage from "../../assets/img/sample-image.png";
 import ImgIconHeart from "../../assets/img/icon-heart.svg";
 
-const Item = ({ item }) => {
+const Item = ({ item, selected_count }) => {
   return (
     <>
       <img src={item.image} class="item-image" alt="" />
@@ -16,7 +16,15 @@ const Item = ({ item }) => {
         </div>
         <div class="info-bottom">
           <div class="price">${item.price}</div>
-          <div class="add">Add +</div>
+          {selected_count == 0 ? (
+            <div class="add">Add +</div>
+          ) : (
+            <div class="number">
+              <span class="minus">－</span>
+              <span class="count">{selected_count}</span>
+              <span class="plus">+</span>
+            </div>
+          )}
         </div>
       </div>
     </>

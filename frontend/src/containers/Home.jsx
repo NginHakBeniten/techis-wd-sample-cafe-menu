@@ -61,7 +61,7 @@ const Home = () => {
           {items &&
             items.map((item) => (
               <li>
-                <Item key={item.id} item={item} />
+                <Item key={item.id} item={item} selected_count={0} />
               </li>
             ))}
         </ul>
