@@ -1,14 +1,20 @@
 import React from "react";
 import ImgLogo from "../../assets/img/logo.svg";
 
-const Footer = ({ price, isCartPage }) => {
+const Footer = ({ price, showCartList, setShowCartList }) => {
   return (
     <footer>
       <div class="subtotal">
         <span class="subtotal-test">Subtotal:</span>
         <span class="subtotal-price">${price}</span>
       </div>
-      {isCartPage ? <button class="link-button">← Go back to Home</button> : <button>Check selected Items</button>}
+      {showCartList ? (
+        <button class="link-button" onClick={() => setShowCartList(false)}>
+          ← Go back to Home
+        </button>
+      ) : (
+        <button onClick={() => setShowCartList(true)}>Check selected Items</button>
+      )}
     </footer>
   );
 };

@@ -6,7 +6,8 @@ const initialState = {
         list: []
     },
     carts: {
-        list: []
+        list: [],
+        subtotal: 0
     }
 };
 

@@ -4,8 +4,6 @@ import ImgIconHeart from "../../assets/img/icon-heart.svg";
 import { addCart, increaseCart, decreaseCart } from "../../reducks/carts/operations";
 
 const Item = ({ item, selected_count }) => {
-  console.log("selcted");
-  console.log(selected_count);
   const dispatch = useDispatch();
   const clickAddCart = () => {
     dispatch(addCart(item));
