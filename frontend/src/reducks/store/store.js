@@ -25,7 +25,8 @@ export default function createStore(history) {
             thunk
         ),
         // DEBUG MODE
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        // Download if you want to use : Redux DevTools
+        // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
        )
     )
 }
