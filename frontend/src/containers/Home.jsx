@@ -4,11 +4,10 @@ import Header from "../components/Common/Header";
 import Footer from "../components/Common/Footer";
 import PopupWriteRevew from "../components/Popup/WriteReview";
 import PopupRevews from "../components/Popup/Reviews";
+import Item from "../components/Common/Item";
 import { fetchPosts } from "../reducks/posts/operations";
 import { getPosts } from "../reducks/posts/selectors";
 import ImgMainImage from "../assets/img/main-image.png";
-import ImgSampleImage from "../assets/img/sample-image.png";
-import ImgIconHeart from "../assets/img/icon-heart.svg";
 
 const Home = () => {
   const [showWriteReview, setShowWriteReview] = useState(false);
@@ -53,60 +52,16 @@ const Home = () => {
 
         <ul class="items">
           <li>
-            <img src={ImgSampleImage} class="item-image" alt="" />
-            <div class="info">
-              <div class="name">Chicken Makhani Burst + Lite</div>
-              <div class="name-bottom">
-                <img src={ImgIconHeart} class="icon-heart" alt="" />
-                <div class="count">(16)</div>
-                <button class="link-button">Check Reviews</button>
-                <button class="link-button">Write Reviews</button>
-              </div>
-              <div class="info-bottom">
-                <div class="price">$16</div>
-                <div class="add">Add +</div>
-              </div>
-            </div>
+            <Item key={1} />
           </li>
           <li>
-            <img src={ImgSampleImage} class="item-image" alt="" />
-            <div class="info">
-              <div class="name">Chicken Makhani Burst + Lite</div>
-              <div class="name-bottom">
-                <img src={ImgIconHeart} class="icon-heart" alt="" />
-                <div class="count">(16)</div>
-                <button class="link-button">Check Reviews</button>
-                <button class="link-button">Write Reviews</button>
-              </div>
-              <div class="info-bottom">
-                <div class="price">$16</div>
-                <div class="number">
-                  <span class="minus">－</span>
-                  <span class="count">2</span>
-                  <span class="plus">+</span>
-                </div>
-              </div>
-            </div>
+            <Item key={2} />
           </li>
           <li>
-            <img src={ImgSampleImage} class="item-image" alt="" />
-            <div class="info">
-              <div class="name">Chicken Makhani Burst + Lite</div>
-              <div class="name-bottom">
-                <img src={ImgIconHeart} class="icon-heart" alt="" />
-                <div class="count">(16)</div>
-                <button class="link-button">Check Reviews</button>
-                <button class="link-button">Write Reviews</button>
-              </div>
-              <div class="info-bottom">
-                <div class="price">$16</div>
-                <div class="number">
-                  <span class="minus">－</span>
-                  <span class="count">2</span>
-                  <span class="plus">+</span>
-                </div>
-              </div>
-            </div>
+            <Item key={3} />
+          </li>
+          <li>
+            <Item key={4} />
           </li>
         </ul>
       </section>
