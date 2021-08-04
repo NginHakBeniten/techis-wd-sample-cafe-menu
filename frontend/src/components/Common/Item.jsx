@@ -2,12 +2,12 @@ import React from "react";
 import ImgSampleImage from "../../assets/img/sample-image.png";
 import ImgIconHeart from "../../assets/img/icon-heart.svg";
 
-const Item = () => {
+const Item = ({ item }) => {
   return (
     <>
-      <img src={ImgSampleImage} class="item-image" alt="" />
+      <img src={item.image} class="item-image" alt="" />
       <div class="info">
-        <div class="name">Chicken Makhani Burst + Lite</div>
+        <div class="name">{item.name}</div>
         <div class="name-bottom">
           <img src={ImgIconHeart} class="icon-heart" alt="" />
           <div class="count">(16)</div>
@@ -15,7 +15,7 @@ const Item = () => {
           <button class="link-button">Write Reviews</button>
         </div>
         <div class="info-bottom">
-          <div class="price">$16</div>
+          <div class="price">${item.price}</div>
           <div class="add">Add +</div>
         </div>
       </div>

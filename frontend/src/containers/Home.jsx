@@ -5,20 +5,27 @@ import Footer from "../components/Common/Footer";
 import PopupWriteRevew from "../components/Popup/WriteReview";
 import PopupRevews from "../components/Popup/Reviews";
 import Item from "../components/Common/Item";
-import { fetchPosts } from "../reducks/posts/operations";
-import { getPosts } from "../reducks/posts/selectors";
+import { fetchItems } from "../reducks/items/operations";
+import { getItems } from "../reducks/items/selectors";
 import ImgMainImage from "../assets/img/main-image.png";
+import queryString from "query-string";
 
 const Home = () => {
+  const parsed = queryString.parse(window.location.search);
   const [showWriteReview, setShowWriteReview] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
-  const posts = getPosts(selector);
+  const items = getItems(selector);
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchItems(parsed.category));
   }, []);
+
+  useEffect(() => {
+    console.log(items);
+    console.log(parsed);
+  }, [items]);
 
   return (
     <div class="home">
@@ -37,32 +44,26 @@ const Home = () => {
         </p>
         <ul class="category">
           <li class="active">
-            <a href="">All</a>
+            <a href="/">All</a>
           </li>
           <li>
-            <a href="">Hot</a>
+            <a href="/?category=hot">Hot</a>
           </li>
           <li>
-            <a href="">Cold</a>
+            <a href="/?category=cold">Cold</a>
           </li>
           <li>
-            <a href="">Bagel</a>
+            <a href="/?category=bagel">Bagel</a>
           </li>
         </ul>
 
         <ul class="items">
-          <li>
-            <Item key={1} />
-          </li>
-          <li>
-            <Item key={2} />
-          </li>
-          <li>
-            <Item key={3} />
-          </li>
-          <li>
-            <Item key={4} />
-          </li>
+          {items &&
+            items.map((item) => (
+              <li>
+                <Item key={item.id} item={item} />
+              </li>
+            ))}
         </ul>
       </section>
 

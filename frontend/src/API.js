@@ -15,6 +15,9 @@ const api = axios.create({
 });
 
 export default class API {
+    ////////////////////////////////
+    // Post : sample
+    ////////////////////////////////
     getPosts = async () => {
         const posts = await api
             .get("/posts/")
@@ -51,5 +54,23 @@ export default class API {
                 throw new Error(error)
             })
         return response
+    }
+    ////////////////////////////////
+    // Item
+    ////////////////////////////////
+    getItems = async (category) => {
+        let url = "/items";
+        if (category) {
+            url += "?category=" + category;
+        }
+        const posts = await api
+            .get(url)
+            .then((response) => {
+                return response.data
+            })
+            .catch((error) => {
+                throw new Error(error)
+            })
+        return posts
     }
 }
