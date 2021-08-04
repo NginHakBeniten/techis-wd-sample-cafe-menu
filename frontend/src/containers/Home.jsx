@@ -66,7 +66,7 @@ const Home = () => {
         </ul>
       </section>
 
-      <Footer price={175} isCartPage={false} />
+      <Footer price={175} isCartPage={true} />
 
       {showWriteReview && <PopupWriteRevew />}
       {showReviews && <PopupRevews />}
