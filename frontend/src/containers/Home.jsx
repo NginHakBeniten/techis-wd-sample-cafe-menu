@@ -17,6 +17,7 @@ const Home = () => {
   const [showWriteReview, setShowWriteReview] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
   const [showCartList, setShowCartList] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState();
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const items = getItems(selector);
@@ -41,7 +42,14 @@ const Home = () => {
 
     return (
       <li>
-        <Item key={item.id} item={item} selected_count={selected_count} setShowWriteReview={setShowWriteReview} setShowReviews={setShowReviews} />
+        <Item
+          key={item.id}
+          item={item}
+          selected_count={selected_count}
+          setShowWriteReview={setShowWriteReview}
+          setShowReviews={setShowReviews}
+          setSelectedItemId={setSelectedItemId}
+        />
       </li>
     );
   };
@@ -88,8 +96,10 @@ const Home = () => {
 
       <Footer price={subtotal} showCartList={showCartList} setShowCartList={setShowCartList} />
 
-      {showWriteReview && <PopupWriteRevew setShowWriteReview={setShowWriteReview} />}
-      {showReviews && <PopupRevews setShowReviews={setShowReviews} />}
+      {showWriteReview && (
+        <PopupWriteRevew selectedItemId={selectedItemId} setSelectedItemId={setSelectedItemId} setShowWriteReview={setShowWriteReview} />
+      )}
+      {showReviews && <PopupRevews selectedItemId={selectedItemId} setSelectedItemId={setSelectedItemId} setShowReviews={setShowReviews} />}
     </div>
   );
 };
