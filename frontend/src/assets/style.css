@@ -381,6 +381,7 @@ footer button.link-button {
     top: 20%;
     left: 10%;
     width: 76%;
+    min-height: 400px;
     padding: 0 4%;
   }
 }
